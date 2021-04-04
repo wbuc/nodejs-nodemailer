@@ -10,3 +10,6 @@ We are using Mailtrap in this example to send emails.
 #### Developer focused provider 
 
 *https://www.mailgun.com/*
+
+
+*https://writejavascript.com/blog/sending-emails-with-node/*
