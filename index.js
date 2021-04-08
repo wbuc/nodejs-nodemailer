@@ -66,5 +66,48 @@ app.get("/v1", async (req, res) => {
         res.status(500).send("Something broke!");
     }
 });
+app.get("/welcome", async (req, res) => {
+    try {
+        const mailData = {
+            orderId: 948584,
+            name: "Patrik",
+            price: 100
+        };
+
+        const mailInfo = {
+            to: "test943933@test.com",
+            context: mailData
+        };
+
+        await mailHelper.sendWelcomeMail(mailInfo);
+        res.send("welcome email sent!");
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Something broke!");
+    }
+});
+app.get("/resetpassword", async (req, res) => {
+    try {
+        console.log(__dirname + "/views/layouts");
+        const mailData = {
+            orderId: 948584,
+            name: "Patrik",
+            price: 100
+        };
+
+        const mailInfo = {
+            to: "test943933@test.com",
+            context: mailData
+        };
+
+        await mailHelper.sendPasswordResetMail(mailInfo);
+        res.send("welcome email sent!");
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Something broke!");
+    }
+});
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

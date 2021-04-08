@@ -53,5 +53,15 @@ module.exports = {
             context,
             attachments
         });
+    },
+    sendWelcomeMail(data) {
+        data.template = 'welcome';
+        data.subject = "Welcome to Dynamext"
+        return this.sendMail(data);
+    },
+    sendPasswordResetMail(data) {
+        data.template = 'requestPasswordReset';
+        data.subject = "Password reset request"
+        return this.sendMail(data);
     }
 }
